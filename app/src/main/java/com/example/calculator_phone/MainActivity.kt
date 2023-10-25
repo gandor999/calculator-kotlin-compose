@@ -148,7 +148,7 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center
                 ) {
                     Calculator(
-                        modifier = Modifier.padding(30.dp).height(300.dp)
+                        modifier = Modifier.padding(10.dp).height(300.dp)
                     )
                 }
             }
