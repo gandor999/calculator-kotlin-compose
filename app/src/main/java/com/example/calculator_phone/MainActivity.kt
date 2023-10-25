@@ -7,10 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,7 +22,12 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ButtonPanel(modifier: Modifier = Modifier, config: Configuration = LocalConfiguration.current) {
+fun ButtonPanel(
+    modifier: Modifier = Modifier,
+    config: Configuration = LocalConfiguration.current,
+    inputNumber: TextFieldValue,
+    setInputNumber: (TextFieldValue) -> Unit
+) {
     Column(
         modifier = modifier
     ) {
@@ -59,7 +61,11 @@ fun ButtonPanel(modifier: Modifier = Modifier, config: Configuration = LocalConf
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()
             ) {
-                Button(onClick = {}) {}
+                Button(onClick = {
+                    setInputNumber(TextFieldValue(inputNumber.text + "1"))
+                }) {
+                    Text("1")
+                }
                 Button(onClick = {}) {}
                 Button(onClick = {}) {}
                 Button(onClick = {}) {}
@@ -131,7 +137,10 @@ fun Calculator(
         Spacer(modifier = Modifier.height(30.dp))
 
         ButtonPanel(
-            modifier = Modifier.fillMaxSize().padding(10.dp), config = config
+            modifier = Modifier.fillMaxSize().padding(10.dp),
+            config = config,
+            inputNumber = inputNumber,
+            setInputNumber = setInputNumber
         )
     }
 
