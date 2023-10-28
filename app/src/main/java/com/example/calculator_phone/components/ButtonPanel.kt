@@ -85,8 +85,15 @@ fun ButtonPanel(
                 Text("<")
             }
 
+
             Button(onClick = {
-                calculatorStateKeeper.setInputNumber(TextFieldValue(calculate(calculatorStateKeeper.inputNumber.text).toString()))
+                calculatorStateKeeper.setInputNumber(
+                    TextFieldValue(
+                        calculate(
+                            calculatorStateKeeper.inputNumber.text
+                        )
+                    )
+                )
             }, colors = ButtonDefaults.buttonColors(Color(red = 81, green = 187, blue = 254))) {
                 Text("=")
             }

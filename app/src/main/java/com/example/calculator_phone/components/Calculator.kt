@@ -38,7 +38,7 @@ fun Calculator(
             ),
             keyboardActions = KeyboardActions(onDone = {
                 println("Enter Pressed And Done!")
-                calculatorStateKeeper.setInputNumber(TextFieldValue(calculate(calculatorStateKeeper.inputNumber.text).toString()))
+                calculatorStateKeeper.setInputNumber(TextFieldValue(calculate(calculatorStateKeeper.inputNumber.text)))
                 calculatorStateKeeper.focusManager.clearFocus()
             }),
             colors = TextFieldDefaults.textFieldColors(

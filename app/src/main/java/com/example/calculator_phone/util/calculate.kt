@@ -55,7 +55,14 @@ fun reduceProductAndQuotients(expression: String): MutableList<String> {
     return tokens
 }
 
-fun calculate(expression: String): Float {
-    return reduceProductAndQuotients(expression).filter { it != "+" }.map { it.toFloat() }
-        .reduce { acc, num -> acc + num }
+fun calculate(expression: String): String {
+
+    var answer = ""
+
+    val errorCheck = runCatching {
+        answer = reduceProductAndQuotients(expression).filter { it != "+" }.map { it.toFloat() }
+            .reduce { acc, num -> acc + num }.toString()
+    }
+
+    return if (errorCheck.isFailure) "Syntax Error" else answer
 }
