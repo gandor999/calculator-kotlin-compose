@@ -27,40 +27,25 @@ fun ButtonPanel(
         modifier = modifier
     ) {
 
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        val buttonIndexes = if (orientation == Configuration.ORIENTATION_LANDSCAPE) listOf(
+            listOf(
+                0, 7
+            ), listOf(8, 15)
+        ) else listOf(listOf(0, 3), listOf(4, 7), listOf(8, 11), listOf(12, 15))
 
-            val buttonIndexes = listOf(listOf(0, 7), listOf(8, 15))
-
-            for (buttonIndex in buttonIndexes) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    RenderButtons(
-                        orientation = orientation,
-                        calculatorStateKeeper = calculatorStateKeeper,
-                        fromIndex = buttonIndex[0],
-                        toIndex = buttonIndex[1]
-                    )
-                }
-            }
-        } else {
-            val buttonIndexes = listOf(listOf(0, 3), listOf(4, 7), listOf(8, 11), listOf(12, 15))
-
-            for (buttonIndex in buttonIndexes) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    RenderButtons(
-                        orientation = orientation,
-                        calculatorStateKeeper = calculatorStateKeeper,
-                        fromIndex = buttonIndex[0],
-                        toIndex = buttonIndex[1]
-                    )
-                }
+        for (buttonIndex in buttonIndexes) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()
+            ) {
+                RenderButtons(
+                    orientation = orientation,
+                    calculatorStateKeeper = calculatorStateKeeper,
+                    fromIndex = buttonIndex[0],
+                    toIndex = buttonIndex[1]
+                )
             }
         }
+
 
         Row(
             modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
