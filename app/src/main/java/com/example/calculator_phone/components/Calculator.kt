@@ -1,6 +1,7 @@
 package com.example.calculator_phone.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
@@ -18,12 +19,12 @@ import com.example.calculator_phone.util.calculate
 
 @Composable
 fun Calculator(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier, horizontalAlignment: Alignment.Horizontal = Alignment.Start
 ) {
     val calculatorStateKeeper = initCalculatorStates()
 
     Column(
-        modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally
+        modifier = modifier, horizontalAlignment = horizontalAlignment
     ) {
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
@@ -50,9 +51,13 @@ fun Calculator(
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        ButtonPanel(
-            modifier = Modifier.fillMaxSize().padding(10.dp),
-            calculatorStateKeeper = calculatorStateKeeper
-        )
+        LazyColumn {
+            item {
+                ButtonPanel(
+                    modifier = Modifier.fillMaxSize().padding(10.dp),
+                    calculatorStateKeeper = calculatorStateKeeper
+                )
+            }
+        }
     }
 }

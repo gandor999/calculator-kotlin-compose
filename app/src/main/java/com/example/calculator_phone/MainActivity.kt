@@ -22,7 +22,8 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center
                 ) {
                     Calculator(
-                        modifier = Modifier.padding(10.dp).height(400.dp)
+                        modifier = Modifier.padding(10.dp).height(400.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     )
                 }
             }
