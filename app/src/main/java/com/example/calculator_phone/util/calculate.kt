@@ -60,8 +60,7 @@ fun calculate(expression: String): String {
     var answer = ""
 
     val errorCheck = runCatching {
-        answer = reduceProductAndQuotients(expression).filter { it != "+" }.map { it.toFloat() }
-            .reduce { acc, num -> acc + num }.toString()
+        answer = reduceProductAndQuotients(expression).filter { it != "+" }.map { it.toFloat() }.reduce { acc, num -> acc + num }.toString()
     }
 
     return if (errorCheck.isFailure) "Syntax Error" else answer

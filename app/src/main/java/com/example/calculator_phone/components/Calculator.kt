@@ -54,8 +54,9 @@ fun Calculator(
         LazyColumn {
             item {
                 ButtonPanel(
-                    modifier = Modifier.fillMaxSize().padding(10.dp),
-                    calculatorStateKeeper = calculatorStateKeeper
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(10.dp), calculatorStateKeeper = calculatorStateKeeper
                 )
             }
         }

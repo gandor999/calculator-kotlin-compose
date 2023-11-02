@@ -17,12 +17,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Column(
-                    modifier = Modifier.fillMaxSize().padding(30.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(30.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
                     Calculator(
-                        modifier = Modifier.padding(10.dp).height(400.dp),
+                        modifier = Modifier
+                            .padding(10.dp)
+                            .height(400.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     )
                 }
