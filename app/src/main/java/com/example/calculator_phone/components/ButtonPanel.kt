@@ -59,9 +59,9 @@ fun ButtonPanel(
             }
 
             Button(onClick = {
-                calculatorStateKeeper.setInputNumber(
+                calculatorStateKeeper.setInputExpression(
                     TextFieldValue(
-                        calculatorStateKeeper.inputNumber.text.dropLast(
+                        calculatorStateKeeper.inputExpression.text.dropLast(
                             1
                         )
                     )
@@ -72,10 +72,10 @@ fun ButtonPanel(
 
 
             Button(onClick = {
-                calculatorStateKeeper.setInputNumber(
+                calculatorStateKeeper.setInputExpression(
                     TextFieldValue(
                         calculate(
-                            calculatorStateKeeper.inputNumber.text
+                            calculatorStateKeeper.inputExpression.text
                         )
                     )
                 )

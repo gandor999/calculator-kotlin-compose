@@ -10,16 +10,16 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.TextFieldValue
 
 data class CalculatorStates(
-    val inputNumber: TextFieldValue,
-    val setInputNumber: (TextFieldValue) -> Unit,
+    val inputExpression: TextFieldValue,
+    val setInputExpression: (TextFieldValue) -> Unit,
     val focusManager: FocusManager,
     val config: Configuration
 )
 
 @Composable
 fun initCalculatorStates(): CalculatorStates {
-    val (inputNumber, setInputNumber) = remember { mutableStateOf(TextFieldValue("")) }
+    val (inputExpression, setInputExpression) = remember { mutableStateOf(TextFieldValue("")) }
     val focusManager = LocalFocusManager.current
     val config = LocalConfiguration.current
-    return CalculatorStates(inputNumber, setInputNumber, focusManager, config)
+    return CalculatorStates(inputExpression, setInputExpression, focusManager, config)
 }

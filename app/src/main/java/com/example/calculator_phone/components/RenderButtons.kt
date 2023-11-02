@@ -23,7 +23,7 @@ fun RenderButtons(
     for (i in fromIndex until toIndex + 1) {
         Button(
             onClick = {
-                calculatorStateKeeper.setInputNumber(TextFieldValue(if (buttonSequence[i] == "C") "" else calculatorStateKeeper.inputNumber.text + buttonSequence[i]))
+                calculatorStateKeeper.setInputExpression(TextFieldValue(if (buttonSequence[i] == "C") "" else calculatorStateKeeper.inputExpression.text + buttonSequence[i]))
             }, colors = ButtonDefaults.buttonColors(
                 if (buttonSequence[i] == "C") Color(
                     red = 255, green = 101, blue = 66

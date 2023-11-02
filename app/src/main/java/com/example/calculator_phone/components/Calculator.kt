@@ -29,16 +29,16 @@ fun Calculator(
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
-            value = calculatorStateKeeper.inputNumber,
+            value = calculatorStateKeeper.inputExpression,
             onValueChange = {
-                calculatorStateKeeper.setInputNumber(it)
+                calculatorStateKeeper.setInputExpression(it)
             },
             label = {},
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Phone, imeAction = ImeAction.Done
             ),
             keyboardActions = KeyboardActions(onDone = {
-                calculatorStateKeeper.setInputNumber(TextFieldValue(calculate(calculatorStateKeeper.inputNumber.text)))
+                calculatorStateKeeper.setInputExpression(TextFieldValue(calculate(calculatorStateKeeper.inputExpression.text)))
                 calculatorStateKeeper.focusManager.clearFocus()
             }),
             colors = TextFieldDefaults.textFieldColors(
